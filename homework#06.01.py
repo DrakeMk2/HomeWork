@@ -1,36 +1,32 @@
 class Animal:
-    alive = True
-    fed = False
 
-    def __init__(self, name):
+    def __init__(self, name, alive=True, fed=False):
         self.name = name
+        self.alive = alive
+        self.fed = fed
+
+    def eat(self, food):
+        if food.edible:
+            print(f'{self.name} съел {food.name}')
+            self.fed = True
+        else:
+            print(f'{self.name} не стал есть {food.name}')
+            self.alive = False
 
 
 class Plant:
-    edible = False
 
-    def __init__(self, name):
+    def __init__(self, name, edible=False):
         self.name = name
+        self.edible = edible
 
 
 class Mammal(Animal):
-    def eat(self, food):
-        if food.edible:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+    pass
 
 
 class Predator(Animal):
-    def eat(self, food):
-        if food.edible:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+    pass
 
 
 class Flower(Plant):
@@ -38,7 +34,10 @@ class Flower(Plant):
 
 
 class Fruit(Plant):
-    edible = True
+    def __init__(self, name, eadible=True):
+        super().__init__(name)
+        self.name = name
+        self.edible = eadible
 
 
 a1 = Predator('Волк с Уолл-Стрит')
@@ -55,7 +54,6 @@ a1.eat(p1)
 a2.eat(p2)
 print(a1.alive)
 print(a2.fed)
-
 
 # Волк с Уолл-Стрит
 # Цветик семицветик
