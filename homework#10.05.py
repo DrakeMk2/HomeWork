@@ -13,18 +13,16 @@ def read_info(name):
 
 filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
-# Линейный вызов
+# Линейный вызов. Мой результат: 0:00:07.990697.
 
 # start = datetime.now()
-# read_info(filenames[0])
-# read_info(filenames[1])
-# read_info(filenames[2])
-# read_info(filenames[3])
+# for file in filenames:
+#     read_info(file)
 # end = datetime.now()
 # print(f'Линейный вызов: {end - start}')
 
 
-# Многопроцессный
+# Многопроцессный. Мой результат: 0:00:03.690931.
 #
 # if __name__ == '__main__':
 #     start = datetime.now()
