@@ -34,7 +34,6 @@ cursor.execute('DELETE FROM Users WHERE id = 6')
 cursor.execute('SELECT COUNT(*) FROM Users')
 usr_cnt = cursor.fetchone()[0]
 
-
 cursor.execute('SELECT SUM(balance) FROM Users')
 sum_bal = cursor.fetchone()[0]
 print(f'Cредний баланс всех пользователей: {sum_bal/usr_cnt}')
@@ -42,9 +41,6 @@ print(f'Cредний баланс всех пользователей: {sum_bal
 cursor.execute('SELECT AVG(balance) FROM Users')
 avg_bal = cursor.fetchone()[0]
 print(f'Тоже средний баланс пользователей: {avg_bal}')
-
-for i in cursor.fetchall():
-    print(f'Имя: {i[1]} | Почта: {i[2]} | Возраст: {i[3]} | Баланс: {i[4]}')
 
 connection.commit()
 connection.close()
