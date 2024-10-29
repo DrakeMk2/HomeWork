@@ -21,11 +21,13 @@ def initiate_db():
 def fill_db(idx, title, description, price):
     cursor.execute('INSERT INTO Products (id, title, description, price) VALUES (?,?,?,?)',
                    (f'{idx}', f'{title}', f'{description}', f'{price}'))
+    connection.commit()
 
 
 def get_all_products():
     cursor.execute('SELECT * FROM Products')
     prod_list = cursor.fetchall()
+    connection.commit()
     return prod_list
 
 
